@@ -27,7 +27,7 @@ export default tseslint
         ...reactHooks.configs.recommended.rules,
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
         // 사용하지 않는 import 관련 규칙
-        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-imports': 'warn',
         'unused-imports/no-unused-vars': [
           'warn',
           {
@@ -38,8 +38,8 @@ export default tseslint
           },
         ],
         // import 순서 정렬 규칙
-        'simple-import-sort/imports': 'error',
-        'simple-import-sort/exports': 'error',
+        'simple-import-sort/imports': 'warn',
+        'simple-import-sort/exports': 'warn',
       },
     },
   )
