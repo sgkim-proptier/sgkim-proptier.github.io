@@ -11,20 +11,83 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
+import { Route as MypageIndexImport } from './routes/mypage/index'
+import { Route as MoimIndexImport } from './routes/moim/index'
+import { Route as BrokerIndexImport } from './routes/broker/index'
+import { Route as BoardIndexImport } from './routes/board/index'
+import { Route as MypageUserInfoImport } from './routes/mypage/user-info'
+import { Route as MypageUserEditImport } from './routes/mypage/user-edit'
+import { Route as MypageMenuImport } from './routes/mypage/menu'
+import { Route as BoardWriteImport } from './routes/board/write'
+import { Route as BoardSearchImport } from './routes/board/search'
+import { Route as BoardBoardIdImport } from './routes/board/$boardId'
 
 // Create/Update Routes
-
-const AboutRoute = AboutImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MypageIndexRoute = MypageIndexImport.update({
+  id: '/mypage/',
+  path: '/mypage/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MoimIndexRoute = MoimIndexImport.update({
+  id: '/moim/',
+  path: '/moim/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BrokerIndexRoute = BrokerIndexImport.update({
+  id: '/broker/',
+  path: '/broker/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BoardIndexRoute = BoardIndexImport.update({
+  id: '/board/',
+  path: '/board/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MypageUserInfoRoute = MypageUserInfoImport.update({
+  id: '/mypage/user-info',
+  path: '/mypage/user-info',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MypageUserEditRoute = MypageUserEditImport.update({
+  id: '/mypage/user-edit',
+  path: '/mypage/user-edit',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MypageMenuRoute = MypageMenuImport.update({
+  id: '/mypage/menu',
+  path: '/mypage/menu',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BoardWriteRoute = BoardWriteImport.update({
+  id: '/board/write',
+  path: '/board/write',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BoardSearchRoute = BoardSearchImport.update({
+  id: '/board/search',
+  path: '/board/search',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BoardBoardIdRoute = BoardBoardIdImport.update({
+  id: '/board/$boardId',
+  path: '/board/$boardId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +102,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
+    '/board/$boardId': {
+      id: '/board/$boardId'
+      path: '/board/$boardId'
+      fullPath: '/board/$boardId'
+      preLoaderRoute: typeof BoardBoardIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/board/search': {
+      id: '/board/search'
+      path: '/board/search'
+      fullPath: '/board/search'
+      preLoaderRoute: typeof BoardSearchImport
+      parentRoute: typeof rootRoute
+    }
+    '/board/write': {
+      id: '/board/write'
+      path: '/board/write'
+      fullPath: '/board/write'
+      preLoaderRoute: typeof BoardWriteImport
+      parentRoute: typeof rootRoute
+    }
+    '/mypage/menu': {
+      id: '/mypage/menu'
+      path: '/mypage/menu'
+      fullPath: '/mypage/menu'
+      preLoaderRoute: typeof MypageMenuImport
+      parentRoute: typeof rootRoute
+    }
+    '/mypage/user-edit': {
+      id: '/mypage/user-edit'
+      path: '/mypage/user-edit'
+      fullPath: '/mypage/user-edit'
+      preLoaderRoute: typeof MypageUserEditImport
+      parentRoute: typeof rootRoute
+    }
+    '/mypage/user-info': {
+      id: '/mypage/user-info'
+      path: '/mypage/user-info'
+      fullPath: '/mypage/user-info'
+      preLoaderRoute: typeof MypageUserInfoImport
+      parentRoute: typeof rootRoute
+    }
+    '/board/': {
+      id: '/board/'
+      path: '/board'
+      fullPath: '/board'
+      preLoaderRoute: typeof BoardIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/broker/': {
+      id: '/broker/'
+      path: '/broker'
+      fullPath: '/broker'
+      preLoaderRoute: typeof BrokerIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/moim/': {
+      id: '/moim/'
+      path: '/moim'
+      fullPath: '/moim'
+      preLoaderRoute: typeof MoimIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/mypage/': {
+      id: '/mypage/'
+      path: '/mypage'
+      fullPath: '/mypage'
+      preLoaderRoute: typeof MypageIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +179,116 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/board/$boardId': typeof BoardBoardIdRoute
+  '/board/search': typeof BoardSearchRoute
+  '/board/write': typeof BoardWriteRoute
+  '/mypage/menu': typeof MypageMenuRoute
+  '/mypage/user-edit': typeof MypageUserEditRoute
+  '/mypage/user-info': typeof MypageUserInfoRoute
+  '/board': typeof BoardIndexRoute
+  '/broker': typeof BrokerIndexRoute
+  '/moim': typeof MoimIndexRoute
+  '/mypage': typeof MypageIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/board/$boardId': typeof BoardBoardIdRoute
+  '/board/search': typeof BoardSearchRoute
+  '/board/write': typeof BoardWriteRoute
+  '/mypage/menu': typeof MypageMenuRoute
+  '/mypage/user-edit': typeof MypageUserEditRoute
+  '/mypage/user-info': typeof MypageUserInfoRoute
+  '/board': typeof BoardIndexRoute
+  '/broker': typeof BrokerIndexRoute
+  '/moim': typeof MoimIndexRoute
+  '/mypage': typeof MypageIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/board/$boardId': typeof BoardBoardIdRoute
+  '/board/search': typeof BoardSearchRoute
+  '/board/write': typeof BoardWriteRoute
+  '/mypage/menu': typeof MypageMenuRoute
+  '/mypage/user-edit': typeof MypageUserEditRoute
+  '/mypage/user-info': typeof MypageUserInfoRoute
+  '/board/': typeof BoardIndexRoute
+  '/broker/': typeof BrokerIndexRoute
+  '/moim/': typeof MoimIndexRoute
+  '/mypage/': typeof MypageIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths:
+    | '/'
+    | '/board/$boardId'
+    | '/board/search'
+    | '/board/write'
+    | '/mypage/menu'
+    | '/mypage/user-edit'
+    | '/mypage/user-info'
+    | '/board'
+    | '/broker'
+    | '/moim'
+    | '/mypage'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to:
+    | '/'
+    | '/board/$boardId'
+    | '/board/search'
+    | '/board/write'
+    | '/mypage/menu'
+    | '/mypage/user-edit'
+    | '/mypage/user-info'
+    | '/board'
+    | '/broker'
+    | '/moim'
+    | '/mypage'
+  id:
+    | '__root__'
+    | '/'
+    | '/board/$boardId'
+    | '/board/search'
+    | '/board/write'
+    | '/mypage/menu'
+    | '/mypage/user-edit'
+    | '/mypage/user-info'
+    | '/board/'
+    | '/broker/'
+    | '/moim/'
+    | '/mypage/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  BoardBoardIdRoute: typeof BoardBoardIdRoute
+  BoardSearchRoute: typeof BoardSearchRoute
+  BoardWriteRoute: typeof BoardWriteRoute
+  MypageMenuRoute: typeof MypageMenuRoute
+  MypageUserEditRoute: typeof MypageUserEditRoute
+  MypageUserInfoRoute: typeof MypageUserInfoRoute
+  BoardIndexRoute: typeof BoardIndexRoute
+  BrokerIndexRoute: typeof BrokerIndexRoute
+  MoimIndexRoute: typeof MoimIndexRoute
+  MypageIndexRoute: typeof MypageIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  BoardBoardIdRoute: BoardBoardIdRoute,
+  BoardSearchRoute: BoardSearchRoute,
+  BoardWriteRoute: BoardWriteRoute,
+  MypageMenuRoute: MypageMenuRoute,
+  MypageUserEditRoute: MypageUserEditRoute,
+  MypageUserInfoRoute: MypageUserInfoRoute,
+  BoardIndexRoute: BoardIndexRoute,
+  BrokerIndexRoute: BrokerIndexRoute,
+  MoimIndexRoute: MoimIndexRoute,
+  MypageIndexRoute: MypageIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +302,50 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/board/$boardId",
+        "/board/search",
+        "/board/write",
+        "/mypage/menu",
+        "/mypage/user-edit",
+        "/mypage/user-info",
+        "/board/",
+        "/broker/",
+        "/moim/",
+        "/mypage/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/board/$boardId": {
+      "filePath": "board/$boardId.tsx"
+    },
+    "/board/search": {
+      "filePath": "board/search.tsx"
+    },
+    "/board/write": {
+      "filePath": "board/write.tsx"
+    },
+    "/mypage/menu": {
+      "filePath": "mypage/menu.tsx"
+    },
+    "/mypage/user-edit": {
+      "filePath": "mypage/user-edit.tsx"
+    },
+    "/mypage/user-info": {
+      "filePath": "mypage/user-info.tsx"
+    },
+    "/board/": {
+      "filePath": "board/index.tsx"
+    },
+    "/broker/": {
+      "filePath": "broker/index.tsx"
+    },
+    "/moim/": {
+      "filePath": "moim/index.tsx"
+    },
+    "/mypage/": {
+      "filePath": "mypage/index.tsx"
     }
   }
 }

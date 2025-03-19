@@ -1,0 +1,204 @@
+@charset "UTF-8";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+  font-family: 'Pretendard', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  letter-spacing: -0.01em;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+p,
+blockquote,
+th,
+td,
+input,
+select,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+img {
+  border: 0 none;
+}
+dl,
+ul,
+ol,
+menu,
+li {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+input,
+select,
+textarea,
+button {
+  outline: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+button {
+  border: 0 none;
+  background-color: transparent;
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  -webkit-text-size-adjust: none;
+}
+input[type='text'],
+input[type='password'],
+input[type='submit'],
+input[type='search'] {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+input:checked[type='checkbox'] {
+  /* background-color: $gray600; */
+  appearance: checkbox;
+  -webkit-appearance: checkbox;
+}
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='file'] {
+  appearance: button;
+  -webkit-appearance: button;
+  border-radius: 0;
+}
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+body {
+  /* background: $white; */
+}
+body,
+th,
+td,
+input,
+select,
+textarea,
+button {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #202429;
+}
+a {
+  color: #202429;
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  text-decoration: none;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+textarea {
+  resize: none;
+}
+caption {
+  display: none;
+}
+input {
+  &::-ms-reveal,
+  &::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+  &::placeholder {
+    color: #202429;
+  }
+}
+textarea {
+  &::placeholder {
+    color: #202429;
+  }
+}
+select {
+  &::-ms-expand {
+    display: none;
+  }
+  &::-ms-value {
+    color: inherit;
+    background: none;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  /* border: 1px solid $gray300; */
+  /* -webkit-text-fill-color: $gray800; */
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
