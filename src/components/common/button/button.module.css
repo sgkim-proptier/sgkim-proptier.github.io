@@ -8,12 +8,13 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
+  background-color: #eee;
   &.primary {
     background-color: var(--color-primary-800);
     color: var(--color-neutral-white);
   }
   &:disabled {
-    background-color: var(--color-neutral-100);
+    background-color: var(--color-neutral-200);
     color: var(--color-neutral-300);
     cursor: not-allowed;
   }

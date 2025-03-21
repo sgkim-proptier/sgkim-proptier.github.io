@@ -12,7 +12,9 @@ export default function MyPageMenu() {
           <TransitionLeftLink to="/mypage/user-info">개인정보 설정</TransitionLeftLink>
         </li>
         <li>
-          <TransitionLeftLink>부동산 전문가 인증 관리</TransitionLeftLink>
+          <TransitionLeftLink to="/mypage/certification">
+            부동산 전문가 인증 관리
+          </TransitionLeftLink>
         </li>
         <li>
           <TransitionLeftLink>푸시 알림 설정</TransitionLeftLink>

@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as InfoImport } from './routes/info'
 import { Route as IndexImport } from './routes/index'
 import { Route as MypageIndexImport } from './routes/mypage/index'
 import { Route as MoimIndexImport } from './routes/moim/index'
@@ -19,11 +20,18 @@ import { Route as BoardIndexImport } from './routes/board/index'
 import { Route as MypageUserInfoImport } from './routes/mypage/user-info'
 import { Route as MypageUserEditImport } from './routes/mypage/user-edit'
 import { Route as MypageMenuImport } from './routes/mypage/menu'
+import { Route as MypageCertificationImport } from './routes/mypage/certification'
 import { Route as BoardWriteImport } from './routes/board/write'
 import { Route as BoardSearchImport } from './routes/board/search'
 import { Route as BoardBoardIdImport } from './routes/board/$boardId'
 
 // Create/Update Routes
+
+const InfoRoute = InfoImport.update({
+  id: '/info',
+  path: '/info',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -73,6 +81,12 @@ const MypageMenuRoute = MypageMenuImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const MypageCertificationRoute = MypageCertificationImport.update({
+  id: '/mypage/certification',
+  path: '/mypage/certification',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const BoardWriteRoute = BoardWriteImport.update({
   id: '/board/write',
   path: '/board/write',
@@ -102,6 +116,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/info': {
+      id: '/info'
+      path: '/info'
+      fullPath: '/info'
+      preLoaderRoute: typeof InfoImport
+      parentRoute: typeof rootRoute
+    }
     '/board/$boardId': {
       id: '/board/$boardId'
       path: '/board/$boardId'
@@ -121,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/board/write'
       fullPath: '/board/write'
       preLoaderRoute: typeof BoardWriteImport
+      parentRoute: typeof rootRoute
+    }
+    '/mypage/certification': {
+      id: '/mypage/certification'
+      path: '/mypage/certification'
+      fullPath: '/mypage/certification'
+      preLoaderRoute: typeof MypageCertificationImport
       parentRoute: typeof rootRoute
     }
     '/mypage/menu': {
@@ -179,9 +207,11 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/info': typeof InfoRoute
   '/board/$boardId': typeof BoardBoardIdRoute
   '/board/search': typeof BoardSearchRoute
   '/board/write': typeof BoardWriteRoute
+  '/mypage/certification': typeof MypageCertificationRoute
   '/mypage/menu': typeof MypageMenuRoute
   '/mypage/user-edit': typeof MypageUserEditRoute
   '/mypage/user-info': typeof MypageUserInfoRoute
@@ -193,9 +223,11 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/info': typeof InfoRoute
   '/board/$boardId': typeof BoardBoardIdRoute
   '/board/search': typeof BoardSearchRoute
   '/board/write': typeof BoardWriteRoute
+  '/mypage/certification': typeof MypageCertificationRoute
   '/mypage/menu': typeof MypageMenuRoute
   '/mypage/user-edit': typeof MypageUserEditRoute
   '/mypage/user-info': typeof MypageUserInfoRoute
@@ -208,9 +240,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/info': typeof InfoRoute
   '/board/$boardId': typeof BoardBoardIdRoute
   '/board/search': typeof BoardSearchRoute
   '/board/write': typeof BoardWriteRoute
+  '/mypage/certification': typeof MypageCertificationRoute
   '/mypage/menu': typeof MypageMenuRoute
   '/mypage/user-edit': typeof MypageUserEditRoute
   '/mypage/user-info': typeof MypageUserInfoRoute
@@ -224,9 +258,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/info'
     | '/board/$boardId'
     | '/board/search'
     | '/board/write'
+    | '/mypage/certification'
     | '/mypage/menu'
     | '/mypage/user-edit'
     | '/mypage/user-info'
@@ -237,9 +273,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/info'
     | '/board/$boardId'
     | '/board/search'
     | '/board/write'
+    | '/mypage/certification'
     | '/mypage/menu'
     | '/mypage/user-edit'
     | '/mypage/user-info'
@@ -250,9 +288,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/info'
     | '/board/$boardId'
     | '/board/search'
     | '/board/write'
+    | '/mypage/certification'
     | '/mypage/menu'
     | '/mypage/user-edit'
     | '/mypage/user-info'
@@ -265,9 +305,11 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InfoRoute: typeof InfoRoute
   BoardBoardIdRoute: typeof BoardBoardIdRoute
   BoardSearchRoute: typeof BoardSearchRoute
   BoardWriteRoute: typeof BoardWriteRoute
+  MypageCertificationRoute: typeof MypageCertificationRoute
   MypageMenuRoute: typeof MypageMenuRoute
   MypageUserEditRoute: typeof MypageUserEditRoute
   MypageUserInfoRoute: typeof MypageUserInfoRoute
@@ -279,9 +321,11 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InfoRoute: InfoRoute,
   BoardBoardIdRoute: BoardBoardIdRoute,
   BoardSearchRoute: BoardSearchRoute,
   BoardWriteRoute: BoardWriteRoute,
+  MypageCertificationRoute: MypageCertificationRoute,
   MypageMenuRoute: MypageMenuRoute,
   MypageUserEditRoute: MypageUserEditRoute,
   MypageUserInfoRoute: MypageUserInfoRoute,
@@ -302,9 +346,11 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/info",
         "/board/$boardId",
         "/board/search",
         "/board/write",
+        "/mypage/certification",
         "/mypage/menu",
         "/mypage/user-edit",
         "/mypage/user-info",
@@ -317,6 +363,9 @@ export const routeTree = rootRoute
     "/": {
       "filePath": "index.tsx"
     },
+    "/info": {
+      "filePath": "info.tsx"
+    },
     "/board/$boardId": {
       "filePath": "board/$boardId.tsx"
     },
@@ -325,6 +374,9 @@ export const routeTree = rootRoute
     },
     "/board/write": {
       "filePath": "board/write.tsx"
+    },
+    "/mypage/certification": {
+      "filePath": "mypage/certification.tsx"
     },
     "/mypage/menu": {
       "filePath": "mypage/menu.tsx"

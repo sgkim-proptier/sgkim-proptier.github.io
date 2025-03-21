@@ -3,6 +3,7 @@ import './styles/common.css';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
+import { OverlayProvider } from 'overlay-kit';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -43,7 +44,9 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <OverlayProvider>
+          <RouterProvider router={router} />
+        </OverlayProvider>
       </QueryClientProvider>
     </StrictMode>,
   );
