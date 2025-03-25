@@ -23,11 +23,9 @@ const router = createRouter({
   defaultPreload: 'intent',
   // Since we're using React Query, we don't want loader calls to ever be stale
   // This will ensure that the loader is always called when the route is preloaded or visited
-  defaultPreloadStaleTime: 5000,
+  defaultPreloadStaleTime: 0,
   scrollRestoration: true,
-  defaultViewTransition: {
-    types: ['slide-right'],
-  },
+  defaultViewTransition: true,
 });
 
 // Register the router instance for type safety
