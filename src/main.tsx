@@ -13,6 +13,23 @@ import { routeTree } from './routeTree.gen';
 
 const queryClient = new QueryClient();
 
+// 문제 해결을 위한 개선된 접근 방식
+function preventDoubleTransition() {
+  let lastTransitionTime = 0;
+
+  return {
+    onTransitionStart: () => {
+      const currentTime = Date.now();
+      if (currentTime - lastTransitionTime < 100) {
+        // 100ms 이내에 중복 트랜지션 방지
+        return false;
+      }
+      lastTransitionTime = currentTime;
+      return true;
+    },
+  };
+}
+
 // Create a new router instance
 const router = createRouter({
   routeTree,
@@ -25,7 +42,7 @@ const router = createRouter({
   // This will ensure that the loader is always called when the route is preloaded or visited
   defaultPreloadStaleTime: 0,
   scrollRestoration: true,
-  defaultViewTransition: true,
+  defaultViewTransition: preventDoubleTransition().onTransitionStart(),
 });
 
 // Register the router instance for type safety
