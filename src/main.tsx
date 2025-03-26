@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom/client';
 import NotFound from './components/common/notFound';
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
+import { isIOS } from './utils/isIos';
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,11 @@ const router = createRouter({
   // This will ensure that the loader is always called when the route is preloaded or visited
   defaultPreloadStaleTime: 0,
   scrollRestoration: true,
-  // defaultViewTransition: preventDoubleTransition().onTransitionStart(),
+  defaultViewTransition: isIOS
+    ? false
+    : {
+        types: ['slide-right'],
+      },
 });
 
 // Register the router instance for type safety
